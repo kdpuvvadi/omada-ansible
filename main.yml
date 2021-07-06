@@ -12,7 +12,9 @@
   tasks:
     - name: download Controller from tplink
       import_tasks: tasks/setup.yml
-      when: omada_preset.rc == 1 and mongo_preset.rc == 0
+      when: 
+        - omada_preset.rc == 1 
+        - mongo_preset.rc == 0
 
     # - name: Install Omada
     #   import_tasks: tasks/omada.yml
