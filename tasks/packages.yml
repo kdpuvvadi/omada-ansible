@@ -1,5 +1,12 @@
 ---
 
+- name: apt cache update
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: full
+  when: ansible_facts.os_family == "Debian"
+
 - name: Install packages/prerequisites "Debian"
   apt:
     name:
@@ -9,10 +16,37 @@
     - openjdk-8-jre-headless
     state: present
     cache_valid_time: 3600
-    upgrade: full
   when: ansible_facts.os_family == "Debian"
+
+- name: yum cache update & upgrade
+  yum: 
+    name: "*"
+    state: latest
+    update_cache: true
+  when: ansible_facts.os_family == "RedHat"
   
-  
+- name: yum install packages
+  yum:
+    name: 
+      - curl
+      - java-1.8.0-openjdk-headless.x86_64
+      - jsvc
+      - tar
+    state: present
+  when: ansible_facts.os_family == "RedHat"
+
+- name: Install mongodb from rpm
+  yum:
+    name: https://repo.mongodb.org/yum/redhat/{{ ansible_distribution_major_version }}/mongodb-org/3.6/x86_64/RPMS/mongodb-org-server-3.6.23-1.el7.x86_64.rpm
+    state: present
+  when: ansible_facts.os_family == "RedHat"
+
+- name: Check if mongodb installed
+  command: which mongodb
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  register: mongo_preset
 
 - name: Check if Omada Controller already installed
   command: which tpeap
