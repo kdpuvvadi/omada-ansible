@@ -2,14 +2,16 @@
 
 - name: Install Omada
   become: yes
-  command: bash install.sh -y -n
+  command: install.sh -y -n
   args:
-    chdir: /home/ansible/omada/
+    chdir: '/home/ansible/omada/'
   register: omadainstall
+  when: omada_preset.rc == 1
 
 - name: omada install status 
   debug:
     msg: "{{ omadainstall.stdout_lines }}"
+  when: omada_preset.rc == 1
 
 - name: Ensure Omada is runnig.
   service:

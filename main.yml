@@ -16,7 +16,6 @@
 
     - name: Install Omada
       import_tasks: tasks/omada.yml
-      when: omada_preset.rc == 1
 
     - name: Get cotroller url
       import_tasks: tasks/ip.yml
