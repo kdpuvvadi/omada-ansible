@@ -6,16 +6,10 @@
     - name: vars
       include_vars: vars.yml
       
-    - name: apt cache update & Upgrade
-      apt:
-        update_cache: true
-        cache_valid_time: 3600
-        upgrade: full
-
-  tasks:
     - name: install packages
       import_tasks: tasks/packages.yml
-
+      
+  tasks:
     - name: download Controller from tplink
       import_tasks: tasks/setup.yml
       when: omada_preset.rc == 1

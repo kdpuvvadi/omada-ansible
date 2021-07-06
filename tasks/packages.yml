@@ -9,6 +9,10 @@
     - openjdk-8-jre-headless
     state: present
     cache_valid_time: 3600
+    upgrade: full
+  when: ansible_facts.os_family == "Debian"
+  
+  
 
 - name: Check if Omada Controller already installed
   command: which tpeap
