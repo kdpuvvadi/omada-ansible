@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: true
+
+  pre_tasks:
+    - name: vars
+      include_vars: vars.yml
+      
+    - name: apt cache update & Upgrade
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+        upgrade: full
+
+  tasks:
+    - name: install packages
+      import_tasks: tasks/packages.yml
+
+    - name: download Controller from tplink
+      import_tasks: tasks/setup.yml
+      when: omada_preset.rc == 1
+
+    - name: Install Omada
+      import_tasks: tasks/omada.yml
+      when: omada_preset.rc == 1
+
+    - name: Get cotroller url
+      import_tasks: tasks/ip.yml

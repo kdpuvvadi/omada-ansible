@@ -1,0 +1,20 @@
+---
+
+- name: Install Omada
+  become: yes
+  command: bash install.sh -y -n
+  args:
+    chdir: /home/ansible/omada/
+  register: omadainstall
+
+- name: omada install status 
+  debug:
+    msg: "{{ omadainstall.stdout_lines }}"
+
+- name: Ensure Omada is runnig.
+  service:
+    name: tpeap
+    state: started
+    enabled: true
+
+

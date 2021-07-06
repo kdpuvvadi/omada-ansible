@@ -1,0 +1,4 @@
+---
+config_dir: '/tmp/omada/'
+omada_url: https://static.tp-link.com/2021/202105/20210507/Omada_SDN_Controller_v4.3.5_linux_x64.deb
+omada_dir: '/tmp/omada/'
