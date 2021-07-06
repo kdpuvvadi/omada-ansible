@@ -41,6 +41,12 @@
     state: present
   when: ansible_facts.os_family == "RedHat"
 
+- name: Ensure mongo is runnig.
+  service:
+    name: mongod
+    state: started
+    enabled: true
+
 - name: Check if mongodb installed
   command: which mongodb
   failed_when: false

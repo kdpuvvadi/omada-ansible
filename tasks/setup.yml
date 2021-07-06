@@ -1,11 +1,5 @@
 ---
 
-- name: Ensure mongo is runnig.
-  service:
-    name: mongod
-    state: started
-    enabled: true
-
 - name: Create Omada Directory "{{ omada_dir }}"
   file: 
     path: "{{ omada_dir }}"
