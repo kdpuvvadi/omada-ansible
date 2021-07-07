@@ -4,7 +4,7 @@
   become: yes
   command: install.sh -y -n
   args:
-    chdir: '/home/ansible/omada/'
+    chdir: /home/ansible/omada/
   register: omadainstall
   when: omada_preset.rc == 1
 
@@ -13,7 +13,7 @@
     msg: "{{ omadainstall.stdout_lines }}"
   when: omada_preset.rc == 1
 
-- name: Ensure Omada is runnig.
+- name: make sure Omada is runnig.
   service:
     name: tpeap
     state: started

@@ -1,13 +1,13 @@
 ---
 
-- name: apt cache update
+- name: apt cache update & upgrade
   apt:
     update_cache: true
     cache_valid_time: 3600
     upgrade: full
   when: ansible_facts.os_family == "Debian"
 
-- name: Install packages/prerequisites "Debian"
+- name: apt install packages
   apt:
     name:
     - mongodb
@@ -23,8 +23,7 @@
     name: "*"
     state: latest
     update_cache: true
-  when:
-    - ansible_facts.os_family == "RedHat"
+  when: ansible_facts.os_family == "RedHat"
   
 - name: yum install packages
   yum:
@@ -48,14 +47,14 @@
     state: started
     enabled: true
 
-- name: Check if mongodb installed
+- name: is mongodb installed
   command: which mongodb
   failed_when: false
   changed_when: false
   check_mode: false
   register: mongo_preset
 
-- name: Check if Omada Controller already installed
+- name: is Omada installed
   command: which tpeap
   failed_when: false
   changed_when: false
