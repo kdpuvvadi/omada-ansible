@@ -1,37 +1,48 @@
-## Welcome to GitHub Pages
+## Omada SDN Ansible Playbook
 
-You can use the [editor on GitHub](https://github.com/kdpuvvadi/Omada-Ansible/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[![lint](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml/badge.svg)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Playbook tested on follwoing host distributions 
+1. Debian 8, 9 & 10
+2. CentOS 6, 7 & 8
+3. Ubuntu 18.04, 20.04
+4. Rocky Linux 8.4
 
-### Markdown
+Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Setup Ansible
 
-```markdown
-Syntax highlighted code block
+1. Install pip `sudo apt install python3-pip -y`
+2. install ansible with pip `pip install ansible` 
+3. Install requirements `ansible-galaxy collection install -r requirements.yml`
 
-# Header 1
-## Header 2
-### Header 3
+### Installed Packages
 
-- Bulleted
-- List
+1. `OpenJDK 1.8 Headless`   -- Omada only supports Java 8  
+2. `MongoDB 3.6`    -- Omada Supports 3.4 to 3.6
+3. `curl`
+4. `jsvc`
+5. `tar`
 
-1. Numbered
-2. List
+### Run
 
-**Bold** and _Italic_ and `Code` text
+1. Clone the repo  `git clone https://github.com/kdpuvvadi/Omada-Ansible.git omada-ansible`. 
+2. copy `example.inventory.ini` to `inventory.ini`.
+3. Change necessary changes to inventory
+4. copy `example.vars.yml` to `vars.yml`.
+5. Change the variable based on your preferences.
 
-[Link](url) and ![Image](src)
-```
+### Run the playbook
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Run `ansible-playbook main.yml` 
 
-### Jekyll Themes
+### Post Install
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kdpuvvadi/Omada-Ansible/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Omada controller will be avaiable on `https://HOST-IP:8088/`  or `https://HOST-IP:8043/`. For the Omada controller to work properly `8088, 8043, 27001, 27002, 29810, 29811, 29812 and 29813` ports should be open on the host. 
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Omada Service on host
+
+*   `sudo tpeap status`     -- show the status of Controller;
+*   `sudo tpeap start`     -- start the Omada Controller;
+*   `sudo tpeap stop`     --stop running the Omada Controller.
