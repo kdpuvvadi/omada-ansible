@@ -4,7 +4,7 @@
 
 Playbook tested on follwoing host distributions 
 1. Debian 8, 9 & 10
-2. CentOS 6, 7 & 8
+2. CentOS 6, 7 ~~& 8~~
 3. Ubuntu 18.04, 20.04
 4. Rocky Linux 8.4
 
