@@ -1,7 +1,7 @@
 ---
 
 - name: Create Omada Directory "{{ omada_dir }}"
-  file: 
+  file:
     path: "{{ omada_dir }}"
     state: directory
     mode: '0755'
@@ -10,6 +10,6 @@
   unarchive:
     src: "{{ omada_url }}"
     dest: "{{ omada_dir }}"
-    remote_src: yes
-    extra_opts: 
+    remote_src: 'yes'
+    extra_opts:
       --strip-components=1

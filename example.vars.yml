@@ -2,3 +2,4 @@
 config_dir: '/home/ansible/omada/'
 omada_url: https://static.tp-link.com/2021/202105/20210507/Omada_SDN_Controller_v4.3.5_linux_x64.tar.gz
 omada_dir: '/home/ansible/omada/'
+mongo_url: https://repo.mongodb.org/yum/redhat/{{ ansible_distribution_major_version }}/mongodb-org/3.6/x86_64/RPMS/mongodb-org-server-3.6.23-1.el{{ ansible_distribution_major_version }}.x86_64.rpm

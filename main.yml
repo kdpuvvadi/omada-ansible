@@ -5,10 +5,10 @@
   pre_tasks:
     - name: vars
       include_vars: vars.yml
-      
+
     - name: install packages
       import_tasks: tasks/packages.yml
-      
+
   tasks:
     - name: download Controller from tplink
       import_tasks: tasks/setup.yml

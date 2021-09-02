@@ -5,6 +5,6 @@
   register: ip
   when: omada_preset.rc == 0
 
-- name: url 
+- name: url
   debug:
     msg: "Omada Controller is running at {{ ipify_public_ip }}:8088"
