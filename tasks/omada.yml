@@ -1,10 +1,14 @@
 ---
 
+- name: make {{ omada_dir }}install.sh exicutable
+  file:
+    path: "{{ omada_dir }}/install.sh"
+    mode: a+x
+
 - name: Install Omada
-  become: 'yes'
-  command: install.sh -y -n
+  command: "./install.sh -y -n"
   args:
-    chdir: /home/ansible/omada/
+    chdir: "{{ omada_dir }}"
   register: omadainstall
   when: omada_preset.rc == 1
 
