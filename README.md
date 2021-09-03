@@ -34,7 +34,7 @@ Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
 
 ### Run the playbook
 
-Run `ansible-playbook main.yml` 
+Run `ansible-playbook main.yml` append `-K` if you need password for `sudo` for root access on your host. `ansible-playbook main.yml -K` 
 
 ### Post Install
 
