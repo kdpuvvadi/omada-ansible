@@ -17,9 +17,10 @@
     - name: Install Omada
       import_tasks: tasks/omada.yml
 
-    - name: Get cotroller url
-      import_tasks: tasks/ip.yml
-
-handlers:
     - name: Reboot
       reboot:
+        post_reboot_delay: 60
+
+    - name: Get cotroller url
+      import_tasks: tasks/ip.yml
+      when: omada_preset.rc == 0

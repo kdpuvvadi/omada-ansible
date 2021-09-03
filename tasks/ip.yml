@@ -8,3 +8,4 @@
 - name: url
   debug:
     msg: "Omada Controller is running at {{ ipify_public_ip }}:8088"
+  
