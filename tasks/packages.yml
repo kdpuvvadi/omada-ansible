@@ -43,7 +43,7 @@
 
 - name: Ensure mongo is runnig.
   service:
-    name: mongod
+    name: mongodb
     state: started
     enabled: true
 
