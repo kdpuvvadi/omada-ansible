@@ -13,3 +13,8 @@
     remote_src: 'yes'
     extra_opts:
       --strip-components=1
+
+- name: Check if reboot required
+  stat:
+    path: /var/run/reboot-required
+  register: reboot_required

@@ -19,3 +19,7 @@
 
     - name: Get cotroller url
       import_tasks: tasks/ip.yml
+
+handlers:
+    - name: Reboot
+      reboot:
