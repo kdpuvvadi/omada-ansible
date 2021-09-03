@@ -1,4 +1,4 @@
-## Ansible Playbook for Deploying TP-Link Omada Controller
+## Ansible Playbook for Deploying TP-Link Omada SDN Controller
 
 [![lint](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml/badge.svg)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml)
 
@@ -6,7 +6,7 @@ Playbook tested on follwoing host distributions
 1. Debian 8, 9 & 10
 2. CentOS 6, 7 ~~& 8~~
 3. Ubuntu 18.04, 20.04
-4. Rocky Linux 8.4
+4.  ~~ Rocky Linux 8.4 ~~
 
 Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
 
@@ -46,3 +46,7 @@ Omada controller will be avaiable on `https://HOST-IP:8088/`  or `https://HOST-I
 *   `sudo tpeap status`     -- show the status of Controller;
 *   `sudo tpeap start`     -- start the Omada Controller;
 *   `sudo tpeap stop`     --stop running the Omada Controller.
+
+## Limitation
+
+* Does not work on CentOS 8 based linux distribution. 
