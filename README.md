@@ -33,6 +33,14 @@ Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
 * copy `example.vars.yml` to `vars.yml`.
 * Change the variable based on your preferences.
 
+## Release
+
+* For latest [release](https://github.com/kdpuvvadi/Omada-Ansible/releases/latest)
+* For version 4.4.4 go to [release 4.4.4](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.3.5-020921)
+* For version 4.3.5 go to [release 4.3.5](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.3.5-020921)
+
+
+
 ## Run the playbook
 
 * Run `ansible-playbook main.yml` append `-K`
