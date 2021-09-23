@@ -41,11 +41,20 @@
     state: present
   when: ansible_facts.os_family == "RedHat"
 
-- name: Ensure mongo is runnig.
+- name: Ensure mongo is runnig on debian.
   service:
     name: mongodb
     state: started
     enabled: true
+  when: ansible_facts.os_family == "Debian"
+
+- name: Ensure mongo is runnig on redhat.
+  service:
+    name: mongod
+    state: started
+    enabled: true
+  when: ansible_facts.os_family == "RedHat"
+
 
 - name: is mongodb installed
   command: which mongodb
