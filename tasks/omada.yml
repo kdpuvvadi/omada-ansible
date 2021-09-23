@@ -34,3 +34,8 @@
   debug:
     msg: "{{ omada_done.stdout_lines }}"
   when: omada_preset.rc == 1
+
+- name: Reboot
+  reboot:
+    post_reboot_delay: 30
+  when: reboot_required.stat.exists
