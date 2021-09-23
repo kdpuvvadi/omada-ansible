@@ -22,4 +22,3 @@
 - name: reboot status debug
   debug:
     var: reboot_required
-    verbosity: 2
