@@ -35,9 +35,9 @@ Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
 
 ## Release
 
-* For latest [release](https://github.com/kdpuvvadi/Omada-Ansible/releases/latest)
-* For version 4.4.4 go to [release 4.4.4](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.3.5-020921)
-* For version 4.3.5 go to [release 4.3.5](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.3.5-020921)
+* For latest [release](../../releases/latest)
+* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4-23092021)
+* For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
 
 
 
