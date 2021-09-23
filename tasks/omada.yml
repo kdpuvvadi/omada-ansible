@@ -22,3 +22,15 @@
     name: tpeap
     state: started
     enabled: true
+
+- name: Omada install check
+  command: which tpeap
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  register: omada_done
+
+- name: omada install status
+  debug:
+    msg: "{{ omada_done.stdout_lines }}"
+  when: omada_preset.rc == 1
