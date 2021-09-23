@@ -39,3 +39,11 @@
   reboot:
     post_reboot_delay: 30
   when: reboot_required.stat.exists
+
+- name: Get my public IP
+  community.general.ipify_facts:
+  register: ip
+
+- name: url
+  debug:
+    msg: "Omada Controller is running at http://{{ ipify_public_ip }}:8088"

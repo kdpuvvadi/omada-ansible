@@ -1,9 +1,0 @@
----
-
-- name: Get my public IP
-  community.general.ipify_facts:
-  register: ip
-
-- name: url
-  debug:
-    msg: "Omada Controller is running at http://{{ ipify_public_ip }}:8088"

@@ -18,6 +18,3 @@
       import_tasks: tasks/omada.yml
       when: omada_preset.rc == 1
 
-    - name: Get cotroller url
-      import_tasks: tasks/ip.yml
-      when: omada_done.rc == 0 or omada_preset.rc == 0
