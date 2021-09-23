@@ -36,7 +36,7 @@ Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
 ## Release
 
 * For latest [release](../../releases/latest)
-* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4)
+* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4-23092021)
 * For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
 
 
