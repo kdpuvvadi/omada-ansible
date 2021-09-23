@@ -19,6 +19,7 @@
     path: /var/run/reboot-required
   register: reboot_required
 
-- name: reboot status
+- name: reboot status debug
   debug:
-    msg: "{{ reboot_required.stdout_lines }}"
+    var: reboot_required
+    verbosity: 2
