@@ -17,4 +17,3 @@
     - name: Install Omada
       import_tasks: tasks/omada.yml
       when: omada_preset.rc == 1
-
