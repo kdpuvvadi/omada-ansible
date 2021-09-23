@@ -6,4 +6,4 @@
 
 - name: url
   debug:
-    msg: "Omada Controller is running at {{ ipify_public_ip }}:8088"
+    msg: "Omada Controller is running at http://{{ ipify_public_ip }}:8088"
