@@ -9,7 +9,7 @@ Playbook tested on follwoing host distributions
 * Ubuntu 18.04, 20.04
 * ~~Rocky Linux 8.4~~
 
-Control Node is Ubuntu 20.04 LTS. Ansible 2.9 or higher required.
+Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Setup Ansible
 
