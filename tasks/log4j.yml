@@ -30,12 +30,18 @@
 
 - name: Copy files to omada dir
   command: cp /tmp/log4j/log4j-api-2.15.0.jar /opt/tplink/EAPController/lib/log4j-api-2.8.2.jar
+  failed_when: false
+  changed_when: false
 
 - name: Copy files to omada dir
   command: cp /tmp/log4j/log4j-core-2.15.0.jar /opt/tplink/EAPController/lib/log4j-core-2.8.2.jar
+  failed_when: false
+  changed_when: false
 
 - name: Copy files to omada dir
   command: cp /tmp/log4j/log4j-slf4j-impl-2.15.0.jar /opt/tplink/EAPController/lib/log4j-slf4j-impl-2.8.2.jar
+  failed_when: false
+  changed_when: false
 
 - name: start Omada Service
   service:
