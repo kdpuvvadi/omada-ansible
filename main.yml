@@ -17,3 +17,6 @@
     - name: Install Omada
       import_tasks: tasks/omada.yml
       when: omada_preset.rc == 1
+
+    - name: Log4j temp fix
+      import_tasks: tasks/log4j.yml

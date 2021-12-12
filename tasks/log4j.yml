@@ -1,0 +1,43 @@
+---
+
+- name: stop Omada Service
+  service:
+    name: tpeap
+    state: stopped
+
+- name: remove log4j old files
+  file:
+    path: /opt/tplink/EAPController/lib/{{ item }}
+    state: absent
+  with_items:
+    - /opt/tplink/EAPController/lib/log4j-api-2.8.2.jar
+    - /opt/tplink/EAPController/lib/log4j-core-2.8.2.jar
+    - /opt/tplink/EAPController/lib/log4j-slf4j-impl-2.8.2.jar
+
+- name: Create Directory"
+  file:
+    path: "/tmp/log4j/"
+    state: directory
+    mode: '0755'
+
+- name: Download log4j 2.15.0
+  unarchive:
+    src: "https://dlcdn.apache.org/logging/log4j/2.15.0/apache-log4j-2.15.0-bin.tar.gz"
+    dest: /tmp/log4j/
+    remote_src: yes
+    extra_opts:
+      --strip-components=1
+
+- name: Copy files to omada dir
+  shell: cp /tmp/log4j/log4j-api-2.15.0.jar /opt/tplink/EAPController/lib/log4j-api-2.8.2.jar
+
+- name: Copy files to omada dir
+  shell: cp /tmp/log4j/log4j-core-2.15.0.jar /opt/tplink/EAPController/lib/log4j-core-2.8.2.jar
+
+- name: Copy files to omada dir
+  shell: cp /tmp/log4j/log4j-slf4j-impl-2.15.0.jar /opt/tplink/EAPController/lib/log4j-slf4j-impl-2.8.2.jar
+
+- name: start Omada Service
+  service:
+    name: tpeap
+    state: started
