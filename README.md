@@ -1,5 +1,7 @@
 # Ansible Playbook for Deploying TP-Link Omada SDN Controller
 
+Temporary fix for CVE-2021-44228 
+
 [![lint](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml/badge.svg)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml)
 
 Playbook tested on follwoing host distributions
