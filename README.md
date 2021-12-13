@@ -35,7 +35,8 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest [release](../../releases/latest)
+* For log4j fixed [release v4.4.6 Log4j Fix Latest](../../releases/v4.4.6-log4j-fix)
+* For latest [Latest release](../../releases/latest)
 * For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4-23092021)
 * For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
 
