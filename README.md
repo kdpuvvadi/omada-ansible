@@ -5,9 +5,8 @@
 Playbook tested on follwoing host distributions
 
 * Debian 8, 9 & 10
-* CentOS 6, 7 ~~& 8~~
+* CentOS 6, 7
 * Ubuntu 18.04, 20.04
-* ~~Rocky Linux 8.4~~
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
@@ -28,9 +27,9 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 ## Run
 
 * Clone the repo  `git clone https://github.com/kdpuvvadi/Omada-Ansible.git omada-ansible`.
-* copy `example.inventory.ini` to `inventory.ini`.
+* copy `inventory.ini.j2` to `inventory.ini`.
 * Change necessary changes to inventory
-* copy `example.vars.yml` to `vars.yml`.
+* copy `vars.yml.j2` to `vars.yml`.
 * Change the variable based on your preferences.
 
 ## Release
