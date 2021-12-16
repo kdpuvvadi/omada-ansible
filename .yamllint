@@ -7,3 +7,4 @@ rules:
     level: warning
   truthy:
     allowed-values: ['true', 'false', 'on', 'yes']
+    
