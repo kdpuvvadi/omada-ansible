@@ -24,7 +24,7 @@
   unarchive:
     src: "https://dlcdn.apache.org/logging/log4j/2.16.0/apache-log4j-2.16.0-bin.tar.gz"
     dest: /tmp/log4j/
-    remote_src: yes
+    remote_src: true
     extra_opts:
       --strip-components=1
 
