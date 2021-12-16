@@ -20,26 +20,26 @@
     state: directory
     mode: '0755'
 
-- name: Download log4j 2.15.0
+- name: Download log4j 2.16.0
   unarchive:
-    src: "https://dlcdn.apache.org/logging/log4j/2.15.0/apache-log4j-2.15.0-bin.tar.gz"
+    src: "https://dlcdn.apache.org/logging/log4j/2.16.0/apache-log4j-2.16.0-bin.tar.gz"
     dest: /tmp/log4j/
     remote_src: yes
     extra_opts:
       --strip-components=1
 
 - name: Copy files to omada dir
-  command: cp /tmp/log4j/log4j-api-2.15.0.jar /opt/tplink/EAPController/lib/log4j-api-2.8.2.jar
+  command: cp /tmp/log4j/log4j-api-2.16.0.jar /opt/tplink/EAPController/lib/log4j-api-2.8.2.jar
   failed_when: false
   changed_when: false
 
 - name: Copy files to omada dir
-  command: cp /tmp/log4j/log4j-core-2.15.0.jar /opt/tplink/EAPController/lib/log4j-core-2.8.2.jar
+  command: cp /tmp/log4j/log4j-core-2.16.0.jar /opt/tplink/EAPController/lib/log4j-core-2.8.2.jar
   failed_when: false
   changed_when: false
 
 - name: Copy files to omada dir
-  command: cp /tmp/log4j/log4j-slf4j-impl-2.15.0.jar /opt/tplink/EAPController/lib/log4j-slf4j-impl-2.8.2.jar
+  command: cp /tmp/log4j/log4j-slf4j-impl-2.16.0.jar /opt/tplink/EAPController/lib/log4j-slf4j-impl-2.8.2.jar
   failed_when: false
   changed_when: false
 
