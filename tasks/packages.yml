@@ -30,7 +30,7 @@
     name:
       - curl
       - java-1.8.0-openjdk-headless.x86_64
-      - jsvc
+      - apache-commons-daemon-jsvc
       - tar
     state: present
   when: ansible_facts.os_family == "RedHat"
