@@ -34,11 +34,12 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.0.29) [Latest release](../../releases/latest)
-* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4-23092021)
+* For latest(5.0.30) [Latest release](../../releases/latest)
+* For version 5.0.29 go to [release 5.0.29](../../releases/v5.0.29)
+* For version v4.4.6 (log4j-fix-CVE-2021-45046) go to [release 4.4.6](../../releases/v4.4.6-log4j-fix-CVE-2021-45046)
+* For version 4.4.6 go to [release 4.4.4](../../releases/v4.4.6)
+* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4)
 * For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
-
-
 
 ## Run the playbook
 
@@ -51,7 +52,6 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 * From v5.0.29 Adoption port has been changed to `29814/tcp`.
 
 To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 and 29814` should be open.
-
 
 ## Omada Service on host
 
