@@ -23,23 +23,40 @@
     name: "*"
     state: latest
     update_cache: true
-  when: ansible_facts.os_family == "RedHat"
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: yum install packages
   yum:
     name:
       - curl
       - java-1.8.0-openjdk-headless.x86_64
-      - apache-commons-daemon-jsvc
       - tar
     state: present
-  when: ansible_facts.os_family == "RedHat"
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+
+- name: install yum lux rpm key
+  rpm_key:
+    key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
+    state: present
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+
+- name: install jsvc on rockey 8
+  yum:
+    name: "{{ jsvc_rpm_url }}"
+    state: present
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+
+- name: Mongodb gpg key
+  rpm_key:
+    key: https://www.mongodb.org/static/pgp/server-4.0.asc
+    state: present
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Install mongodb from rpm
   yum:
     name: " {{ mongo_url }} "
     state: present
-  when: ansible_facts.os_family == "RedHat"
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Ensure mongo is runnig on debian.
   service:
@@ -53,8 +70,7 @@
     name: mongod
     state: started
     enabled: true
-  when: ansible_facts.os_family == "RedHat"
-
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: is mongodb installed
   command: which mongodb
