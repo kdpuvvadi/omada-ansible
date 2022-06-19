@@ -4,8 +4,8 @@
 
 Playbook tested on follwoing host distributions
 
-* Debian 8, 9 & 10
-* CentOS 6, 7, 8
+* Debian 10, 11
+* RHEL 8
 * Ubuntu 18.04, 20.04
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
