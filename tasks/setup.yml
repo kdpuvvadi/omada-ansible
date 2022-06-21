@@ -1,13 +1,13 @@
 ---
 
 - name: Create Omada Directory "{{ omada_dir }}"
-  file:
+  ansible.builtin.file:
     path: "{{ omada_dir }}"
     state: directory
     mode: '0755'
 
 - name: Download & unzip the archive "{{ omada_dir }}"
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ omada_url }}"
     dest: "{{ omada_dir }}"
     remote_src: 'yes'
@@ -15,6 +15,6 @@
       --strip-components=1
 
 - name: Check if reboot required
-  stat:
+  ansible.builtin.stat:
     path: /var/run/reboot-required
   register: reboot_required

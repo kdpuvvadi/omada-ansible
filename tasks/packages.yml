@@ -1,14 +1,14 @@
 ---
 
 - name: apt cache update & upgrade
-  apt:
+  ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 3600
     upgrade: full
   when: ansible_facts.os_family == "Debian"
 
 - name: apt install packages
-  apt:
+  ansible.builtin.apt:
     name:
       - mongodb
       - jsvc
@@ -19,14 +19,14 @@
   when: ansible_facts.os_family == "Debian"
 
 - name: yum cache update & upgrade
-  yum:
+  ansible.builtin.yum:
     name: "*"
     state: latest
     update_cache: true
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: yum install packages
-  yum:
+  ansible.builtin.yum:
     name:
       - curl
       - java-1.8.0-openjdk-headless.x86_64
@@ -35,52 +35,52 @@
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: install yum lux rpm key
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: install jsvc on rockey 8
-  yum:
+  ansible.builtin.yum:
     name: "{{ jsvc_rpm_url }}"
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Mongodb gpg key
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: https://www.mongodb.org/static/pgp/server-4.0.asc
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Install mongodb from rpm
-  yum:
+  ansible.builtin.yum:
     name: " {{ mongo_url }} "
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Ensure mongo is runnig on debian.
-  service:
+  ansible.builtin.service:
     name: mongodb
     state: started
     enabled: true
   when: ansible_facts.os_family == "Debian"
 
 - name: Ensure mongo is runnig on redhat.
-  service:
+  ansible.builtin.service:
     name: mongod
     state: started
     enabled: true
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: is mongodb installed
-  command: which mongodb
+  ansible.builtin.command: which mongodb
   failed_when: false
   changed_when: false
   check_mode: false
   register: mongo_preset
 
 - name: is Omada installed
-  command: which tpeap
+  ansible.builtin.command: which tpeap
   failed_when: false
   changed_when: false
   check_mode: false

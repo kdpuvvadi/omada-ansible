@@ -1,42 +1,42 @@
 ---
 
 - name: make {{ omada_dir }}install.sh exicutable
-  file:
+  ansible.builtin.file:
     path: "{{ omada_dir }}/install.sh"
     mode: a+x
 
 - name: Install Omada
-  command: "./install.sh -y -n"
+  ansible.builtin.command: "./install.sh -y -n"
   args:
     chdir: "{{ omada_dir }}"
   register: omadainstall
   when: omada_preset.rc == 1
 
 - name: omada install status
-  debug:
+  ansible.builtin.debug:
     msg: "{{ omadainstall.stdout_lines }}"
   when: omada_preset.rc == 1
 
 - name: make sure Omada is runnig.
-  service:
+  ansible.builtin.service:
     name: tpeap
     state: started
     enabled: true
 
 - name: Omada install check
-  command: which tpeap
+  ansible.builtin.command: which tpeap
   failed_when: false
   changed_when: false
   check_mode: false
   register: omada_done
 
 - name: omada install status
-  debug:
+  ansible.builtin.debug:
     msg: "{{ omada_done.stdout_lines }}"
   when: omada_preset.rc == 1
 
 - name: Reboot
-  reboot:
+  ansible.builtin.reboot:
     post_reboot_delay: 30
   when: reboot_required.stat.exists
 
@@ -45,5 +45,5 @@
   register: ip
 
 - name: url
-  debug:
+  ansible.builtin.debug:
     msg: "Omada Controller is running at http://{{ ipify_public_ip }}:8088"
