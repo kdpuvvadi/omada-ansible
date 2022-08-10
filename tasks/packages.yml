@@ -19,12 +19,26 @@
     cache_valid_time: 3600
   when: ansible_facts.os_family == "Debian"
 
+- name: Enable EPEL Repository on CentOS 7
+  ansible.builtin.yum:
+    name: epel-release
+    state: latest
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
+
 - name: yum cache update & upgrade
   ansible.builtin.yum:
     name: "*"
     state: latest
     update_cache: true
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+  when: ansible_facts.os_family == "RedHat"
+
+- name: yum install packages
+  ansible.builtin.yum:
+    name:
+      - numactl
+      - python-pip
+    state: present
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
 - name: yum install packages
   ansible.builtin.yum:
@@ -33,13 +47,13 @@
       - java-1.8.0-openjdk-headless.x86_64
       - tar
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+  when: ansible_facts.os_family == "RedHat"
 
 - name: install yum lux rpm key
   ansible.builtin.rpm_key:
     key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+  when: ansible_facts.os_family == "RedHat"
 
 - name: install jsvc on rockey 8
   ansible.builtin.yum:
@@ -47,17 +61,37 @@
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
+- name: install jsvc on rhel 8
+  ansible.builtin.yum:
+    name: "{{ jsvc_rpm_el7 }}"
+    state: present
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
+
 - name: Mongodb gpg key
   ansible.builtin.rpm_key:
     key: https://www.mongodb.org/static/pgp/server-4.0.asc
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+  when: ansible_facts.os_family == "RedHat"
 
 - name: Install mongodb from rpm
   ansible.builtin.yum:
     name: " {{ mongo_url }} "
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+  when: ansible_facts.os_family == "RedHat"
+
+- name: Install mongodb from rpm rhel7
+  ansible.builtin.yum:
+    name: " {{ mongo_url_el7 }} "
+    state: present
+    skip_broken: true
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
+
+- name: Install mongodb from rpm rhel7
+  ansible.builtin.yum:
+    name: " {{ mongo_server_url_el7 }} "
+    state: present
+    skip_broken: true
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
 - name: Ensure mongo is runnig on debian.
   ansible.builtin.service:
@@ -71,7 +105,7 @@
     name: mongod
     state: started
     enabled: true
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+  when: ansible_facts.os_family == "RedHat"
 
 - name: is mongodb installed
   ansible.builtin.command: which mongodb
