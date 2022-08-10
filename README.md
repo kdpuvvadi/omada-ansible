@@ -8,6 +8,8 @@ Playbook tested on follwoing host distributions
 * RHEL 8
 * Ubuntu 18.04, 20.04
 
+> for [rhel7](#support-for-rhel7) support try [rhel branch](../../tree/rhel7)
+
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Setup Ansible
@@ -61,3 +63,14 @@ To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 an
 * `sudo tpeap status`     -- show the status of Controller;
 * `sudo tpeap start`     -- start the Omada Controller;
 * `sudo tpeap stop`     --stop running the Omada Controller.
+
+## Support for rhel7
+
+Support for rhel ended(from [Red Hat](https://www.redhat.com/)) but you still want to install on one, here are the instructions
+
+* Clone the repo  `git clone -b rhel7 https://github.com/kdpuvvadi/Omada-Ansible.git --single-branch omada-ansible`.
+* Install requirements `ansible-galaxy collection install -r requirements.yml`.
+* copy `inventory.ini.j2` to `inventory.ini`.
+* Change necessary changes to inventory.
+* copy `vars.yml.j2` to `vars.yml`.
+* Change the variable based on your preferences.
