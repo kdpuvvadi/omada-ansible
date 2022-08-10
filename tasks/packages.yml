@@ -32,7 +32,7 @@
     update_cache: true
   when: ansible_facts.os_family == "RedHat"
 
-- name: yum install packages
+- name: yum install packages on rhel7
   ansible.builtin.yum:
     name:
       - numactl
@@ -67,19 +67,19 @@
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
-- name: Mongodb gpg key
+- name: Mongodb 4.0 gpg key
   ansible.builtin.rpm_key:
     key: https://www.mongodb.org/static/pgp/server-4.0.asc
     state: present
   when: ansible_facts.os_family == "RedHat"
 
-- name: Install mongodb from rpm
+- name: Install mongodb from rpm on rhel8
   ansible.builtin.yum:
     name: " {{ mongo_url }} "
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
-- name: Install mongodb from rpm rhel7
+- name: Install mongodb from rpm on rhel7
   ansible.builtin.yum:
     name: " {{ mongo_url_el7 }} "
     state: present
