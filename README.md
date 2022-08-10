@@ -4,9 +4,7 @@
 
 Playbook tested on follwoing host distributions
 
-* Debian 10, 11
-* RHEL 8
-* Ubuntu 18.04, 20.04
+* RHEL 7
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
@@ -25,16 +23,19 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Run
 
-* Clone the repo  `git clone https://github.com/kdpuvvadi/Omada-Ansible.git omada-ansible`.
+Support for rhel ended(from [Red Hat](https://www.redhat.com/)) but you still want to install on one, here are the instructions
+
+* Clone the repo  `git clone -b rhel7 https://github.com/kdpuvvadi/Omada-Ansible.git --single-branch omada-ansible`.
 * Install requirements `ansible-galaxy collection install -r requirements.yml`.
 * copy `inventory.ini.j2` to `inventory.ini`.
 * Change necessary changes to inventory.
 * copy `vars.yml.j2` to `vars.yml`.
 * Change the variable based on your preferences.
 
+
 ## Release
 
-* For latest(5.3.1) [Latest release](../../releases/latest)
+* For latest(5.4.6) [Latest release](../../releases/latest)
 * For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
 * For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
 * For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
