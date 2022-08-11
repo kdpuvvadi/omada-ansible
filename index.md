@@ -34,15 +34,15 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.4.6) [Latest release](../../releases/latest)
-* For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
-* For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
-* For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
-* For version 5.0.29 go to [release 5.0.29](../../releases/v5.0.29)
-* For version v4.4.6 (log4j-fix-CVE-2021-45046) go to [release 4.4.6](../../releases/v4.4.6-log4j-fix-CVE-2021-45046)
-* For version 4.4.6 go to [release 4.4.4](../../releases/v4.4.6)
-* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4)
-* For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
+* For latest(5.4.6) [Latest release](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/latest)
+* For version(5.3.1) [release 5.3.1](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v5.3.1)
+* For version 5.1.7 [release 5.1.7](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v5.1.7)
+* For version 5.0.30 [release 5.0.30](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v5.0.30)
+* For version 5.0.29 go to [release 5.0.29](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v5.0.29)
+* For version v4.4.6 (log4j-fix-CVE-2021-45046) go to [release 4.4.6](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.4.6-log4j-fix-CVE-2021-45046)
+* For version 4.4.6 go to [release 4.4.4](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.4.6)
+* For version 4.4.4 go to [release 4.4.4](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.4.4)
+* For version 4.3.5 go to [release 4.3.5](https://github.com/kdpuvvadi/Omada-Ansible/releases/tag/v4.3.5-020921)
 
 ## Run the playbook
 
