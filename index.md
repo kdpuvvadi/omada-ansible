@@ -6,7 +6,7 @@ Playbook tested on follwoing host distributions
 * RHEL 8
 * Ubuntu 18.04, 20.04
 
-> for [rhel7](#support-for-rhel7) support try [rhel branch](../../tree/rhel7)
+> for [rhel7](#support-for-rhel7) support try [rhel7 branch]([../../tree/rhel7](https://github.com/kdpuvvadi/Omada-Ansible/tree/rhel7))
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
