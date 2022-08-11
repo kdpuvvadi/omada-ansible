@@ -1,36 +1,15 @@
 ---
 
-- name: apt cache update & upgrade
-  ansible.builtin.apt:
-    update_cache: true
-    cache_valid_time: 3600
-    upgrade: full
-    state: latest
-  when: ansible_facts.os_family == "Debian"
-
-- name: apt install packages
-  ansible.builtin.apt:
-    name:
-      - mongodb
-      - jsvc
-      - curl
-      - openjdk-8-jre-headless
-    state: present
-    cache_valid_time: 3600
-  when: ansible_facts.os_family == "Debian"
-
 - name: Enable EPEL Repository on CentOS 7
   ansible.builtin.yum:
     name: epel-release
     state: latest
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
 - name: yum cache update & upgrade
   ansible.builtin.yum:
     name: "*"
     state: latest
     update_cache: true
-  when: ansible_facts.os_family == "RedHat"
 
 - name: yum install packages on rhel7
   ansible.builtin.yum:
@@ -41,13 +20,11 @@
       - java-1.8.0-openjdk-headless.x86_64
       - tar
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
 - name: install yum lux rpm key
   ansible.builtin.rpm_key:
     key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
     state: present
-  when: ansible_facts.os_family == "RedHat"
 
 - name: Copy jsvc rpm file to server
   copy:
@@ -58,33 +35,22 @@
   ansible.builtin.yum:
     name: /tmp/apache-commons-daemon-jsvc-1.0.13-7.el7.x86_64.rpm
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
 - name: Mongodb 4.0 gpg key
   ansible.builtin.rpm_key:
     key: https://www.mongodb.org/static/pgp/server-4.0.asc
     state: present
-  when: ansible_facts.os_family == "RedHat"
 
 - name: Install mongodb from rpm on rhel
   ansible.builtin.yum:
     name: /tmp/mongodb-org-server-4.0.27-1.el7.x86_64.rpm
     state: present
-  when: ansible_facts.os_family == "RedHat" 
-
-- name: Ensure mongo is runnig on debian.
-  ansible.builtin.service:
-    name: mongodb
-    state: started
-    enabled: true
-  when: ansible_facts.os_family == "Debian"
 
 - name: Ensure mongo is runnig on redhat.
   ansible.builtin.service:
     name: mongod
     state: started
     enabled: true
-  when: ansible_facts.os_family == "RedHat"
 
 - name: is mongodb installed
   ansible.builtin.command: which mongodb

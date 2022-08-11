@@ -8,12 +8,13 @@
 
     - name: install packages
       import_tasks: tasks/packages.yml
+      when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
   tasks:
     - name: download Controller from tplink
       import_tasks: tasks/setup.yml
-      when: omada_preset.rc == 1
+      when: omada_preset.rc == 1 and ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
     - name: Install Omada
       import_tasks: tasks/omada.yml
-      when: omada_preset.rc == 1
+      when: omada_preset.rc == 1 and ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
