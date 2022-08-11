@@ -37,17 +37,11 @@
     name:
       - numactl
       - python-pip
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
-
-- name: yum install packages
-  ansible.builtin.yum:
-    name:
       - curl
       - java-1.8.0-openjdk-headless.x86_64
       - tar
     state: present
-  when: ansible_facts.os_family == "RedHat"
+  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
 - name: install yum lux rpm key
   ansible.builtin.rpm_key:
@@ -55,15 +49,14 @@
     state: present
   when: ansible_facts.os_family == "RedHat"
 
-- name: install jsvc on rockey 8
-  ansible.builtin.yum:
-    name: "{{ jsvc_rpm_url }}"
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
+- name: Copy jsvc rpm file to server
+  copy:
+     src: config/rpm/
+     dest: /tmp/
 
 - name: install jsvc on rhel 7
   ansible.builtin.yum:
-    name: "{{ jsvc_rpm_el7 }}"
+    name: /tmp/apache-commons-daemon-jsvc-1.0.13-7.el7.x86_64.rpm
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
 
@@ -73,17 +66,11 @@
     state: present
   when: ansible_facts.os_family == "RedHat"
 
-- name: Install mongodb from rpm on rhel8
+- name: Install mongodb from rpm on rhel
   ansible.builtin.yum:
-    name: " {{ mongo_url }} "
+    name: /tmp/mongodb-org-server-4.0.27-1.el7.x86_64.rpm
     state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
-- name: Install mongodb from rpm on rhel7
-  ansible.builtin.yum:
-    name: " {{ mongo_url_el7 }} "
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "7"
+  when: ansible_facts.os_family == "RedHat" 
 
 - name: Ensure mongo is runnig on debian.
   ansible.builtin.service:
