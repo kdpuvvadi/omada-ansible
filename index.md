@@ -4,9 +4,11 @@
 
 Playbook tested on follwoing host distributions
 
-* Debian 8, 9 & 10
-* CentOS 6, 7, 8
+* Debian 10, 11
+* RHEL 8
 * Ubuntu 18.04, 20.04
+
+> for [rhel7](#support-for-rhel7) support try [rhel branch](../../tree/rhel7)
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
@@ -34,7 +36,10 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.0.30) [Latest release](../../releases/latest)
+* For latest(5.4.6) [Latest release](../../releases/latest)
+* For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
+* For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
+* For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
 * For version 5.0.29 go to [release 5.0.29](../../releases/v5.0.29)
 * For version v4.4.6 (log4j-fix-CVE-2021-45046) go to [release 4.4.6](../../releases/v4.4.6-log4j-fix-CVE-2021-45046)
 * For version 4.4.6 go to [release 4.4.4](../../releases/v4.4.6)
@@ -58,3 +63,14 @@ To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 an
 * `sudo tpeap status`     -- show the status of Controller;
 * `sudo tpeap start`     -- start the Omada Controller;
 * `sudo tpeap stop`     --stop running the Omada Controller.
+
+## Support for rhel7
+
+Support for rhel ended(from [Red Hat](https://www.redhat.com/)) but you still want to install on one, here are the instructions
+
+* Clone the repo  `git clone -b rhel7 https://github.com/kdpuvvadi/Omada-Ansible.git --single-branch omada-ansible`.
+* Install requirements `ansible-galaxy collection install -r requirements.yml`.
+* copy `inventory.ini.j2` to `inventory.ini`.
+* Change necessary changes to inventory.
+* copy `vars.yml.j2` to `vars.yml`.
+* Change the variable based on your preferences.
