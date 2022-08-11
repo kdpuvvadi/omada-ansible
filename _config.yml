@@ -1,3 +1,4 @@
 remote_theme: lewismiddleton/cayman-dark
 title: Ansible playbook for Omada SDN
 description: Ansible Playbook for Deploying TP-Link Omada SDN Controller on Ubuntu, Debian and rhel distros
+show_downloads: true
