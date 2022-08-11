@@ -26,10 +26,13 @@
     key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
     state: present
 
-- name: Copy jsvc rpm file to server
-  copy:
-     src: config/rpm/
-     dest: /tmp/
+- name: Copy rpm files to server
+  ansible.builtin.copy:
+    src: config/rpm/
+    dest: /tmp/
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0644'
 
 - name: install jsvc on rhel 7
   ansible.builtin.yum:
