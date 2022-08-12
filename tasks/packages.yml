@@ -16,7 +16,7 @@
       - curl
       - openjdk-8-jre-headless
     state: present
-    cache_valid_time: 3600
+    update_cache: true
   when: ansible_facts.os_family == "Debian"
 
 - name: yum cache update & upgrade
