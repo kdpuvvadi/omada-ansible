@@ -1,0 +1,12 @@
+#cloud-config
+users:
+  - name: ansible
+    ssh-authorized-keys:
+      - pubkey
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+runcmd:
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - sed -i -e '$aAllowUsers ansible' /etc/ssh/sshd_config
+  - restart ssh
