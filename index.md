@@ -1,4 +1,5 @@
 [![ci](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/ci.yml/badge.svg)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/ci.yml)
+[![gh-pages](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/pages/pages-build-deployment)
 
 Playbook tested on follwoing host distributions
 
