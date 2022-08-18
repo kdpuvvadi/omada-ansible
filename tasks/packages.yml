@@ -4,7 +4,6 @@
   apt:
     update_cache: true
     cache_valid_time: 3600
-#     upgrade: true
   when: ansible_facts.os_family == "Debian"
 
 - name: apt install packages
