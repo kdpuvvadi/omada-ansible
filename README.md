@@ -29,14 +29,14 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 * Clone the repo  `git clone https://github.com/kdpuvvadi/Omada-Ansible.git omada-ansible`.
 * Install requirements `ansible-galaxy collection install -r requirements.yml`.
-* copy `inventory.ini.j2` to `inventory.ini`.
-* Change necessary changes to inventory.
-* copy `vars.yml.j2` to `vars.yml`.
-* Change the variable based on your preferences.
+* Inventory with `cp  inventory.ini.j2 inventory.ini`.
+* Add IP and username of the server to the inventory.
+* Variables with `cp vars.yml.j2 vars.yml`.
 
 ## Release
 
-* For latest(5.4.6) [Latest release](../../releases/latest)
+* For Latest(5.5.6) [Latest release](../../releases/latest)
+* For latest(5.4.6) [release 5.4.6](../../releases/v5.4.6)
 * For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
 * For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
 * For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
@@ -70,7 +70,6 @@ Support for rhel ended(from [Red Hat](https://www.redhat.com/)) but you still wa
 
 * Clone the repo  `git clone -b rhel7 https://github.com/kdpuvvadi/Omada-Ansible.git --single-branch omada-ansible`.
 * Install requirements `ansible-galaxy collection install -r requirements.yml`.
-* copy `inventory.ini.j2` to `inventory.ini`.
-* Change necessary changes to inventory.
-* copy `vars.yml.j2` to `vars.yml`.
-* Change the variable based on your preferences.
+* Inventory with `cp  inventory.ini.j2 inventory.ini`.
+* Add IP and username of the server to the inventory.
+* Variables with `cp vars.yml.j2 vars.yml`.
