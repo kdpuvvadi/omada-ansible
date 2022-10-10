@@ -1,6 +1,6 @@
 ---
 
-- name: Make {{ omada_dir }}install.sh executable
+- name: Make install.sh executable
   ansible.builtin.file:
     path: "{{ omada_dir }}/install.sh"
     mode: a+x

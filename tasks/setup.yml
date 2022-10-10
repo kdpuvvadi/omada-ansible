@@ -1,12 +1,12 @@
 ---
 
-- name: Create Omada Directory "{{ omada_dir }}"
+- name: Create Omada Directory
   ansible.builtin.file:
     path: "{{ omada_dir }}"
     state: directory
     mode: '0755'
 
-- name: Download & unzip the archive "{{ omada_dir }}"
+- name: Download & unzip the archive
   ansible.builtin.unarchive:
     src: "{{ omada_url }}"
     dest: "{{ omada_dir }}"
