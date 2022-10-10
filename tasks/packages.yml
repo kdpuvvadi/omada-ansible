@@ -1,13 +1,13 @@
 ---
 
-- name: apt cache update & upgrade
+- name: Apt cache update & upgrade
   ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 3600
     state: latest
   when: ansible_facts.os_family == "Debian"
 
-- name: apt install packages
+- name: Apt install packages
   ansible.builtin.apt:
     name:
       - mongodb
@@ -18,14 +18,14 @@
     update_cache: true
   when: ansible_facts.os_family == "Debian"
 
-- name: yum cache update & upgrade
+- name: Yum cache update & upgrade
   ansible.builtin.yum:
     name: "*"
     state: latest
     update_cache: true
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
-- name: yum install packages
+- name: Yum install packages
   ansible.builtin.yum:
     name:
       - curl
@@ -34,13 +34,13 @@
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
-- name: install yum lux rpm key
+- name: Install yum lux rpm key
   ansible.builtin.rpm_key:
     key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
     state: present
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
-- name: install jsvc on rockey 8
+- name: Install jsvc on rockey 8
   ansible.builtin.yum:
     name: "{{ jsvc_rpm_url }}"
     state: present
@@ -72,14 +72,14 @@
     enabled: true
   when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
-- name: is mongodb installed
+- name: Is mongodb installed
   ansible.builtin.command: which mongodb
   failed_when: false
   changed_when: false
   check_mode: false
   register: mongo_preset
 
-- name: is Omada installed
+- name: Is Omada installed
   ansible.builtin.command: which tpeap
   failed_when: false
   changed_when: false
