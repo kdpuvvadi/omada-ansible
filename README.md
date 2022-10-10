@@ -1,14 +1,12 @@
 # Ansible Playbook for Deploying TP-Link Omada SDN Controller
 
-[![ci](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/ci.yml/badge.svg)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/ci.yml)
-
-Playbook tested on follwoing host distributions
+Playbook tested on following host distributions
 
 * Debian 10, 11
 * RHEL 8
 * Ubuntu 18.04, 20.04
 
-> for [rhel7](#support-for-rhel7) support try [rhel branch](../../tree/rhel7)
+> for [rhel 7](#support-for-rhel7) support try [rhel branch](../../tree/rhel7)
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
@@ -19,15 +17,15 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Installed Packages
 
-* `OpenJDK 1.8 Headless`   -- Omada only supports Java 8
-* `MongoDB 3.6`    -- Omada Supports 3.4 to 4.0
+* `OpenJDK 8 Headless`   -- Omada only supports Java 8 (from 5.4 java 17 is supported, check [java-17-branch](../../tree/java-17))
+* `MongoDB 4.0`    -- Omada Supports 3.4 to 4.0
 * `curl`
 * `jsvc`
 * `tar`
 
 ## Run
 
-* Clone the repo  `git clone https://github.com/kdpuvvadi/Omada-Ansible.git omada-ansible`.
+* Clone the repo  `git clone https://github.com/kdpuvvadi/omada-ansible.git omada-ansible`.
 * Install requirements `ansible-galaxy collection install -r requirements.yml`.
 * Inventory with `cp  inventory.ini.j2 inventory.ini`.
 * Add IP and username of the server to the inventory.
@@ -35,7 +33,7 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For Latest(5.5.6) [Latest release](../../releases/latest)
+* For latest(5.5.6) [latest release](../../releases/latest)
 * For latest(5.4.6) [release 5.4.6](../../releases/v5.4.6)
 * For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
 * For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
@@ -53,7 +51,7 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Post Install
 
-* Omada controller will be avaiable on `https://HOST-IP:8088/`  or `https://HOST-IP:8043/`.
+* Omada controller will be available on `https://HOST-IP:8088/`  or `https://HOST-IP:8043/`.
 * From v5.0.29 Adoption port has been changed to `29814/tcp`.
 
 To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 and 29814` should be open.

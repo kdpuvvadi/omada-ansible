@@ -3,14 +3,14 @@
   become: true
 
   pre_tasks:
-    - name: vars
+    - name: Vars
       include_vars: vars.yml
 
-    - name: install packages
+    - name: Install packages
       import_tasks: tasks/packages.yml
 
   tasks:
-    - name: download Controller from tplink
+    - name: Download Controller from tplink
       import_tasks: tasks/setup.yml
       when: omada_preset.rc == 1
 
