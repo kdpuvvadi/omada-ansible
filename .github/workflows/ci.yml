@@ -68,7 +68,7 @@ jobs:
 
       - name: setup ansible
         run: |
-          cd /home/runner/work/Omada-Ansible/Omada-Ansible/
+          cd /home/runner/work/omada-ansible/Omada-Ansible/
           cp inventory.ini.j2 inventory.ini
           cp vars.yml.j2 vars.yml
           hostip=$(doctl compute droplet list --format 'Public IPv4' --no-header)
