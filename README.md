@@ -33,9 +33,10 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.5.6) [latest release](../../releases/latest)
-* For latest(5.4.6) [release 5.4.6](../../releases/v5.4.6)
-* For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
+* For latest(5.6.3) [Latest release](../../releases/latest)
+* For verion 5.5.6 [release 5.5.6](../../releases/v5.5.6)
+* For verion 5.4.6 [release 5.4.6](../../releases/v5.4.6)
+* For version5.3.1 [release 5.3.1](../../releases/v5.3.1)
 * For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
 * For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
 * For version 5.0.29 go to [release 5.0.29](../../releases/v5.0.29)
