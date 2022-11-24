@@ -13,7 +13,7 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 ## Setup Ansible
 
 * Install pip `sudo apt install python3-pip -y`
-* install ansible with pip `pip install ansible`
+* install ansible with pip `pip install -i requirements.txt`
 
 ## Installed Packages
 
@@ -33,17 +33,18 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.6.3) [Latest release](../../releases/latest)
-* For verion 5.5.6 [release 5.5.6](../../releases/v5.5.6)
-* For verion 5.4.6 [release 5.4.6](../../releases/v5.4.6)
-* For version5.3.1 [release 5.3.1](../../releases/v5.3.1)
+* For latest(5.7.4) [Latest release](../../releases/latest)
+* For version 5.6.3 [release 5.6.3](../../releases/5.6.3)
+* For version 5.5.6 [release 5.5.6](../../releases/v5.5.6)
+* For version 5.4.6 [release 5.4.6](../../releases/v5.4.6)
+* For version 5.3.1 [release 5.3.1](../../releases/v5.3.1)
 * For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
 * For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
-* For version 5.0.29 go to [release 5.0.29](../../releases/v5.0.29)
-* For version v4.4.6 (log4j-fix-CVE-2021-45046) go to [release 4.4.6](../../releases/v4.4.6-log4j-fix-CVE-2021-45046)
-* For version 4.4.6 go to [release 4.4.4](../../releases/v4.4.6)
-* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4)
-* For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
+* For version 5.0.29 [release 5.0.29](../../releases/v5.0.29)
+* For version v4.4.6 (log4j-fix-CVE-2021-45046) [release 4.4.6](../../releases/v4.4.6-log4j-fix-CVE-2021-45046)
+* For version 4.4.6 [release 4.4.4](../../releases/v4.4.6)
+* For version 4.4.4 [release 4.4.4](../../releases/v4.4.4)
+* For version 4.3.5 [release 4.3.5](../../releases/v4.3.5-020921)
 
 ## Run the playbook
 
@@ -52,7 +53,7 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Post Install
 
-* Omada controller will be available on `https://HOST-IP:8088/`  or `https://HOST-IP:8043/`.
+* Omada controller will be available on `http://HOST-IP:8088/`  or `https://HOST-IP:8043/`.
 * From v5.0.29 Adoption port has been changed to `29814/tcp`.
 
 To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 and 29814` should be open.
@@ -65,7 +66,7 @@ To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 an
 
 ## Support for rhel7
 
-Support for rhel ended(from [Red Hat](https://www.redhat.com/)) but you still want to install on one, here are the instructions
+Support for rhel 7 ended(from [Red Hat](https://www.redhat.com/)) but you still want to install on one, here are the instructions
 
 * Clone the repo  `git clone -b rhel7 https://github.com/kdpuvvadi/Omada-Ansible.git --single-branch omada-ansible`.
 * Install requirements `ansible-galaxy collection install -r requirements.yml`.
