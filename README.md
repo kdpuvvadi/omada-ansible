@@ -32,19 +32,6 @@ Support for rhel ended(from [Red Hat](https://www.redhat.com/)) but you still wa
 * copy `vars.yml.j2` to `vars.yml`.
 * Change the variable based on your preferences.
 
-
-## Release
-
-* For latest(5.4.6) [Latest release](../../releases/latest)
-* For version(5.3.1) [release 5.3.1](../../releases/v5.3.1)
-* For version 5.1.7 [release 5.1.7](../../releases/v5.1.7)
-* For version 5.0.30 [release 5.0.30](../../releases/v5.0.30)
-* For version 5.0.29 go to [release 5.0.29](../../releases/v5.0.29)
-* For version v4.4.6 (log4j-fix-CVE-2021-45046) go to [release 4.4.6](../../releases/v4.4.6-log4j-fix-CVE-2021-45046)
-* For version 4.4.6 go to [release 4.4.4](../../releases/v4.4.6)
-* For version 4.4.4 go to [release 4.4.4](../../releases/v4.4.4)
-* For version 4.3.5 go to [release 4.3.5](../../releases/v4.3.5-020921)
-
 ## Run the playbook
 
 * Run `ansible-playbook main.yml` append `-K`
