@@ -3,10 +3,7 @@
 Playbook tested on following host distributions
 
 * Debian 10, 11
-* RHEL 8
-* Ubuntu 18.04, 20.04
-
-> for [rhel 7](#support-for-rhel7) support try [rhel branch](../../tree/rhel7)
+* Ubuntu 18.04, 20.04, 22.04
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
@@ -17,7 +14,7 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Installed Packages
 
-* `OpenJDK 8 Headless`   -- Omada only supports Java 8 (from 5.4 java 17 is supported, check [java-17-branch](../../tree/java-17))
+* `OpenJDK 8 Headless`
 * `MongoDB 4.0`    -- Omada Supports 3.4 to 4.0
 * `curl`
 * `jsvc`
@@ -51,7 +48,7 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Run the playbook
 
-* Run `ansible-playbook main.yml` append `-K`
+* Run `ansible-playbook main.yml`
 * if you need password for `sudo` for root access on your host. `ansible-playbook main.yml -K`
 
 ## Post Install
@@ -66,13 +63,3 @@ To work properly  ports `8088, 8043, 27001, 27002, 29810, 29811, 29812, 29813 an
 * `sudo tpeap status`     -- show the status of Controller;
 * `sudo tpeap start`     -- start the Omada Controller;
 * `sudo tpeap stop`     --stop running the Omada Controller.
-
-## Support for rhel7
-
-Support for rhel 7 ended(from [Red Hat](https://www.redhat.com/)) but you still want to install on one, here are the instructions
-
-* Clone the repo  `git clone -b rhel7 https://github.com/kdpuvvadi/Omada-Ansible.git --single-branch omada-ansible`.
-* Install requirements `ansible-galaxy collection install -r requirements.yml`.
-* Inventory with `cp  inventory.ini.j2 inventory.ini`.
-* Add IP and username of the server to the inventory.
-* Variables with `cp vars.yml.j2 vars.yml`.

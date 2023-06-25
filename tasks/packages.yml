@@ -18,59 +18,12 @@
     update_cache: true
   when: ansible_facts.os_family == "Debian"
 
-- name: Run yum cache update & upgrade
-  ansible.builtin.yum:
-    name: "*"
-    state: latest
-    update_cache: true
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
-- name: Run yum install packages
-  ansible.builtin.yum:
-    name:
-      - curl
-      - java-1.8.0-openjdk-headless.x86_64
-      - tar
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
-- name: Install yum lux rpm key
-  ansible.builtin.rpm_key:
-    key: http://repo.iotti.biz/RPM-GPG-KEY-LUX
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
-- name: Install jsvc on rocky 8
-  ansible.builtin.yum:
-    name: "{{ jsvc_rpm_url }}"
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
-- name: Mongodb gpg key
-  ansible.builtin.rpm_key:
-    key: https://www.mongodb.org/static/pgp/server-4.0.asc
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
-- name: Install mongodb from rpm
-  ansible.builtin.yum:
-    name: " {{ mongo_url }} "
-    state: present
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
-
 - name: Ensure mongo is running on debian.
   ansible.builtin.service:
     name: mongodb
     state: started
     enabled: true
   when: ansible_facts.os_family == "Debian"
-
-- name: Ensure mongo is running on redhat.
-  ansible.builtin.service:
-    name: mongod
-    state: started
-    enabled: true
-  when: ansible_facts.os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Check mongodb install status
   ansible.builtin.command: which mongodb
