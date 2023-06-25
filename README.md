@@ -1,6 +1,6 @@
 # Ansible Playbook for Deploying TP-Link Omada SDN Controller
 
-[![lint](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml/badge.svg)](https://github.com/kdpuvvadi/Omada-Ansible/actions/workflows/lint.yml)
+⚠️ Deprecated. NO longer supported.
 
 Playbook tested on follwoing host distributions
 
