@@ -30,7 +30,8 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.12.7) [latest release](../../releases/v5.12.7)
+* For latest(5.13.22) [latest release](../../releases/v5.13.22)
+* For version 5.12.7 [release 5.12.7](../../releases/v5.12.7)
 * For version 5.9.31 [release 5.9.31](../../releases/v5.9.31)
 * For verion 5.9.9 [release 5.9.9](../../releases/v5.9.9)
 * For version 5.8.4 [release 5.8.4](../../releases/v5.8.4)
