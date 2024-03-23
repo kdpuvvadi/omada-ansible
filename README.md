@@ -2,10 +2,15 @@
 
 Playbook tested on following host distributions
 
-* Debian 10, 11
-* Ubuntu 18.04, 20.04, 22.04
+* Debian 10, 11, 12
+* Ubuntu 18.04, 20.04
 
 Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
+
+## Instructions for Ubuntu 22.04/ Debian 12 
+
+Manual instalation instructions for installing Omada SDN on Ubuntu 22.04 or Debian 12
+https://blog.puvvadi.me/posts/omada-sdn-controller-ubuntu-22-04/
 
 ## Setup Ansible
 
@@ -30,7 +35,8 @@ Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
 
 ## Release
 
-* For latest(5.13.22) [latest release](../../releases/v5.13.22)
+* For latest(5.13.30.8) [latest release](../../releases/v5.13.30.8)
+* For version 5.13.22 [release 5.13.22](../../releases/v5.13.22)
 * For version 5.12.7 [release 5.12.7](../../releases/v5.12.7)
 * For version 5.9.31 [release 5.9.31](../../releases/v5.9.31)
 * For verion 5.9.9 [release 5.9.9](../../releases/v5.9.9)
