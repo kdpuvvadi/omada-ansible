@@ -8,6 +8,12 @@
 
     - name: Install packages
       import_tasks: tasks/packages.yml
+      when: (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "11" ) or 
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20" )
+
+    - name: Install packages for Debian 12
+      import_tasks: tasks/pkgs12.yml
+      when: (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "12")
 
   tasks:
     - name: Download Controller from tplink
