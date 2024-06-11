@@ -5,7 +5,6 @@
     update_cache: true
     cache_valid_time: 3600
     state: latest
-  when: ansible_facts.os_family == "Debian"
 
 - name: Run apt install packages
   ansible.builtin.apt:
@@ -16,14 +15,12 @@
       - openjdk-8-jre-headless
     state: present
     update_cache: true
-  when: ansible_facts.os_family == "Debian"
 
 - name: Ensure mongo is running on debian.
   ansible.builtin.service:
     name: mongodb
     state: started
     enabled: true
-  when: ansible_facts.os_family == "Debian"
 
 - name: Check mongodb install status
   ansible.builtin.command: which mongodb
