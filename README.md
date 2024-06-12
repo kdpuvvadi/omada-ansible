@@ -2,12 +2,10 @@
 
 Playbook tested on following host distributions
 
-* Debian 10, 11, 12
 * Ubuntu 18.04, 20.04
+* Debian 12
 
-Tested on Control Node Ubuntu 20.04 LTS. Ansible 2.11.6.
-
-## Instructions for Ubuntu 22.04/ Debian 12 
+## Instructions for Ubuntu 22.04 / Debian 12 
 
 Manual instalation instructions for installing Omada SDN on Ubuntu 22.04 or Debian 12
 https://blog.puvvadi.me/posts/omada-sdn-controller-ubuntu-22-04/
@@ -24,6 +22,18 @@ https://blog.puvvadi.me/posts/omada-sdn-controller-ubuntu-22-04/
 * `curl`
 * `jsvc`
 * `tar`
+
+## Testing
+
+Test the playbook before running it. You can use [geerlingguy](https://github.com/geerlingguy)'s Docker images such as `Debian 12` to test . 
+
+- Clone the repo  `git clone https://github.com/kdpuvvadi/omada-ansible.git omada-ansible`.
+- `cd omada-ansible`
+- Pull docker image `docker pull geerlingguy/docker-debian12-ansible:latest`
+- Run the container `docker run -d --privileged --name omada --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --volume ${PWD}:/var/omada:ro -p 8088:8088 -p 8043:8043 --cgroupns=host geerlingguy/docker-debian12-ansible:latest`
+- Test the playbook with `docker exec --tty omada env TERM=xterm ansible-playbook /var/omada/main.yml`
+
+if everything was executed as expected, you should be able to visit controller at `https://localhost:8043`. Now install omada controller on VM/VPS with ths playybook.
 
 ## Run
 
