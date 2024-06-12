@@ -1,0 +1,8 @@
+---
+
+- name: Check Omada install status
+  ansible.builtin.command: which tpeap
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  register: omada_preset
