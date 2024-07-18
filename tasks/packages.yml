@@ -5,7 +5,12 @@
     update_cache: true
     cache_valid_time: 3600
     state: latest
-  when: ansible_facts.os_family == "Debian"
+
+- name: Create man Directory(fix java install issue)
+  ansible.builtin.file:
+    path: /usr/share/man/man1
+    state: directory
+    mode: '0755'
 
 - name: Run apt install packages
   ansible.builtin.apt:
@@ -16,14 +21,12 @@
       - openjdk-8-jre-headless
     state: present
     update_cache: true
-  when: ansible_facts.os_family == "Debian"
 
 - name: Ensure mongo is running on debian.
   ansible.builtin.service:
     name: mongodb
     state: started
     enabled: true
-  when: ansible_facts.os_family == "Debian"
 
 - name: Check mongodb install status
   ansible.builtin.command: which mongodb
@@ -31,10 +34,3 @@
   changed_when: false
   check_mode: false
   register: mongo_preset
-
-- name: Check Omada install status
-  ansible.builtin.command: which tpeap
-  failed_when: false
-  changed_when: false
-  check_mode: false
-  register: omada_preset

@@ -1,0 +1,60 @@
+---
+
+- name: Run apt cache update & upgrade
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+    state: latest
+
+- name: Create man Directory(fix java install issue)
+  ansible.builtin.file:
+    path: /usr/share/man/man1
+    state: directory
+    mode: '0755'
+
+- name: Run apt install packages
+  ansible.builtin.apt:
+    name:
+      - jsvc
+      - curl
+      - openjdk-17-jre-headless
+      - gnupg
+      - ca-certificates
+    state: present
+    update_cache: true
+
+- name: Install libssl1.1
+  ansible.builtin.apt:
+    deb: http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb
+
+- name: Add MongoDB gpg signing key
+  ansible.builtin.apt_key:
+    url: https://www.mongodb.org/static/pgp/server-4.4.asc
+    # dest: /etc/apt/trusted.gpg.d/debian.gpg
+    state: present
+
+- name: Add MongoDB repository into sources list
+  ansible.builtin.apt_repository:
+    filename: "mongodb-org-4.4.list"
+    repo: "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse"
+    state: present
+
+- name: Install MongoDB
+  ansible.builtin.apt:
+    name:
+      - mongodb-org
+    state: present
+    update_cache: true
+
+- name: Ensure mongo is running on debian.
+  ansible.builtin.service:
+    name: mongod
+    state: started
+    enabled: true
+
+- name: Check mongodb install status
+  ansible.builtin.command: which mongodb
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  register: mongo_preset
